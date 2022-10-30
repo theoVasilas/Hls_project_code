@@ -1,0 +1,72 @@
+//Askisi 1
+unsigned short count_ones (unsigned int a){
+
+ac_int<32,false> input = a;
+
+	return input.and_reduce() ;
+}
+
+
+//Askisi 2
+#include<string>  
+unsigned int checksum (unsigned int input ){
+
+ string str = to_string( input );
+ int sum = 0;
+ int temp = 0;
+ int len  = str.length() ;
+ 
+ for (int i = len-1 ; i >= 0 ; i--){// inverce loop from the end 
+ 
+ 	temp = (int)str[i]-((int)'0'); // trans str to int not the asci number 
+    
+    if(abs(i-len+1) % 2 == 1){ // only for every tow elements 
+			if(temp*2 < 10 )				 // exam the last val is  |3-4.len+1| = 0    
+        	sum = sum +  temp*2;
+        else
+           	sum = sum + 1 +  (temp % 5 ) * 2 ; // exam 6*2 = 1+2 , 6%5=1 , 1*2=2
+    }																						//exam 9*2 = 1+8 , 9%5=4 , 4*2 =8 
+    else
+    	sum = sum +  temp ;  
+ }
+ return sum ;
+}
+
+//Askisi3 
+template<int N, int M>
+void compute_row_sum (short a[N][M], short row_sum[N]){
+short a[2][3] ={{ 2, 3,6 }, { 5, 1,4 }};
+    
+    short row_sum[2] ;
+
+  for (int N = 0; N < 2; N++) {
+    for (int M = 0; M < 3; M++) {
+     row_sum[N] += a[N][M] ;
+    }
+    cout<<row_sum[N]<<endl;
+  }
+  return 0;
+
+}
+
+
+//Askisi4
+template<int N>
+void wave_sort (int a[N]){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
